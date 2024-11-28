@@ -1,0 +1,22 @@
+{
+    "jugador_1": {
+        "nombre": "Enzo",
+        "puntuacion": 78
+    },
+    "jugador_2": {
+        "nombre": "Romina",
+        "puntuacion": 3
+    },
+    "jugador_3": {
+        "nombre": "Diego",
+        "puntuacion": 65
+    },
+    "jugador_4": {
+        "nombre": "Serpentino",
+        "puntuacion": 133
+    },
+    "jugador_5": {
+        "nombre": "Serpentino",
+        "puntuacion": 348
+    }
+}
