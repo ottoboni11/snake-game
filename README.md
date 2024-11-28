@@ -67,4 +67,3 @@ Equipo de Desarrollo: **Unnamed**
 ## Créditos 📜
 Este juego fue desarrolado utilizando la librería [PyGame](https://www.pygame.org/). Agradecimienos especiales a las fuentes de recursos gráficos y de audio disponibles de manera grautita.
 
-<p align="center"> <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=algolia&quote=To%20know,%20is%20to%20know%20that%20you%20know%20nothing.&author=Wise%20man" /> </p>
