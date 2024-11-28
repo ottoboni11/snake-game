@@ -4,6 +4,7 @@ from assets.config.screen import screen
 from assets.font.fuentes import fuente_opciones
 from assets.color.colores import BLANCO,AMARILLO,VERDE,VERDE_CLARO
 from assets.sprites.backgrounds.background import background_menu
+from assets.config.screen import boton_jugar, boton_ranking, boton_salir
 
 
 def dibujar_texto(texto:str, x:int, y:int, color:tuple)->None:
@@ -19,43 +20,39 @@ def dibujar_texto(texto:str, x:int, y:int, color:tuple)->None:
     screen.blit(superficie, (x, y))
 
 
-def mostrar_menu(boton_j,boton_r,boton_s):
+def mostrar_menu():
     '''
+    Dibuja el menu en pantalla con sus respectivos elementos, titulo, menu, etc.
     Efecto hover en los botones.
-
-    Parametros: - boton_j (.Rect) 
-                - boton_r (.Rect)
-                - boton_s (.Rect)
-    
     '''
     screen.blit(background_menu, (0, 0)) # Imprimimos el background del menu.
     dibujar_texto("El Juego De La Serpiente", 40, 130, BLANCO)
 
     # Botón Jugar
     # Si la posición actual de mouse se encuentra sobre el rectangulo del boton jugar.
-    if boton_j.collidepoint(pygame.mouse.get_pos()): 
-        pygame.draw.rect(screen, VERDE_CLARO, boton_j) # Dibuja un rectangulo con un color más claro (hover).
+    if boton_jugar.collidepoint(pygame.mouse.get_pos()): 
+        pygame.draw.rect(screen, VERDE_CLARO, boton_jugar) # Dibuja un rectangulo con un color más claro (hover).
         
     else: # Caso contrario dibuja un rectangulo con un verde mas oscuro.
-        pygame.draw.rect(screen, VERDE, boton_j) 
-    dibujar_texto("Jugar", boton_j.x + 50, boton_j.y + 15, BLANCO) # Dibuja el texto de "Jugar"
+        pygame.draw.rect(screen, VERDE, boton_jugar) 
+    dibujar_texto("Jugar", boton_jugar.x + 50, boton_jugar.y + 15, BLANCO) # Dibuja el texto de "Jugar"
 
     # Botón Ranking
     # Si la posición actual de mouse se encuentra sobre el rectangulo del boton ranking.
-    if boton_r.collidepoint(pygame.mouse.get_pos()):
-        pygame.draw.rect(screen, VERDE_CLARO, boton_r)
+    if boton_ranking.collidepoint(pygame.mouse.get_pos()):
+        pygame.draw.rect(screen, VERDE_CLARO, boton_ranking)
         
     else:
-        pygame.draw.rect(screen, VERDE, boton_r)
-    dibujar_texto("Ranking", boton_r.x + 20, boton_r.y + 15, BLANCO)
+        pygame.draw.rect(screen, VERDE, boton_ranking)
+    dibujar_texto("Ranking", boton_ranking.x + 20, boton_ranking.y + 15, BLANCO)
 
     # Botón Salir
-    if boton_s.collidepoint(pygame.mouse.get_pos()):
-        pygame.draw.rect(screen, VERDE_CLARO, boton_s)
+    if boton_salir.collidepoint(pygame.mouse.get_pos()):
+        pygame.draw.rect(screen, VERDE_CLARO, boton_salir)
         
     else:
-        pygame.draw.rect(screen, VERDE, boton_s)
-    dibujar_texto("Salir", boton_s.x + 50, boton_s.y + 15, BLANCO)
+        pygame.draw.rect(screen, VERDE, boton_salir)
+    dibujar_texto("Salir", boton_salir.x + 50, boton_salir.y + 15, BLANCO)
 
 
 # Función para mostrar la pantalla de ranking

@@ -98,6 +98,18 @@ class Fruta:
         self.sprite = pygame.transform.scale(pygame.image.load('assets/sprites/frutas/sprite_fruta.png').convert_alpha(), (cell_size, cell_size))
 
 
+    def spawn_random_fruta(self):
+        '''
+        Ubica la fruta en una posicion aleatoria dentro del area de juego.
+
+        Utiliza coordenadas x,y provenientes del random.randint() para la ubicacion,
+        dentro de la "grilla".
+        '''
+        self.x = random.randint(0,cell_n - 1) #Eje X
+        self.y = random.randint(0,cell_n - 1) #Eje Y
+        self.posicion = Vector2(self.x, self.y) #Posicion de la manzana (tupla)
+
+
     def d_fruta(self):
         '''
         Dibuja la fruta en pantalla.
@@ -111,16 +123,6 @@ class Fruta:
         #"Pegamos" el sprite de la fruta sobre la ubicación.
         screen.blit(self.sprite, spawn_fruta) 
 
-    def spawn_random_fruta(self):
-        '''
-        Ubica la fruta en una posicion aleatoria dentro del area de juego.
-
-        Utiliza coordenadas x,y provenientes del random.randint() para la ubicacion,
-        dentro de la "grilla".
-        '''
-        self.x = random.randint(0,cell_n - 1) #Eje X
-        self.y = random.randint(0,cell_n - 1) #Eje Y
-        self.posicion = Vector2(self.x, self.y) #Posicion de la manzana (tupla)
 
 class MainJuego:
     '''
@@ -135,6 +137,23 @@ class MainJuego:
         self.fruta = Fruta()
         self.puntuacion = 0 #Puntuacion de las manzanas.
         self.manzanas_comidas= 0 #Cantidad de manzanas ingeridas.
+
+
+    def colision(self):
+        '''
+        Verificamos si la serpiente chocó con su cuerpo, con un limite de mapa o si comió una manzana.
+        Si .colision_borde() o .colision_cuerpo() son verdaderas, termina el juego,
+        caso contrario, si la serpiente esta sobre la manzana(Comió), spawnea una nueva,
+        extendemos la longitud de la serpiente mediante el metodo .crecer() y sumamos el puntaje.
+
+        :returns: bool
+
+        '''
+        if self.snake.colision_borde() or self.snake.colision_cuerpo(): #Verificamos "colision".
+            sonido_choque.play() #Sonido en caso de choque.
+            print("¡Game Over!") #Test
+            return True
+        
 
     def mov(self):
         '''
@@ -152,20 +171,6 @@ class MainJuego:
         self.fruta.d_fruta() #Dibujamos la fruta en las coordenadas previstas.
         self.snake.d_serpiente() #Dibujamos la serpiente en las coordenadas iniciales indicadas.
 
-    def colision(self):
-        '''
-        Verificamos si la serpiente chocó con su cuerpo, con un limite de mapa o si comió una manzana.
-        Si .colision_borde() o .colision_cuerpo() son verdaderas, termina el juego,
-        caso contrario, si la serpiente esta sobre la manzana(Comió), spawnea una nueva,
-        extendemos la longitud de la serpiente mediante el metodo .crecer() y sumamos el puntaje.
-
-        :returns: bool
-
-        '''
-        if self.snake.colision_borde() or self.snake.colision_cuerpo(): #Verificamos "colision".
-            sonido_choque.play() #Sonido en caso de choque.
-            print("¡Game Over!") #Test
-            return True
 
         #Verificamos si la posicion de la cabeza de la serpiente está sobre una manzana.
         if self.fruta.posicion == self.snake.cuerpo[0]:

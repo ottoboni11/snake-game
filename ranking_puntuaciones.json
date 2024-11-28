@@ -11,12 +11,8 @@
         "nombre": "Diego",
         "puntuacion": 65
     },
-    "jugador_4": {
+    "jugador_6": {
         "nombre": "Serpentino",
-        "puntuacion": 133
-    },
-    "jugador_5": {
-        "nombre": "Serpentino",
-        "puntuacion": 348
+        "puntuacion": 88
     }
 }

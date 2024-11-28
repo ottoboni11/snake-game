@@ -56,7 +56,7 @@ while corriendo:
     # Dibuja en pantalla segun el estado.
     
     if estado == "menu":
-        mostrar_menu(boton_jugar, boton_ranking, boton_salir)
+        mostrar_menu()
     elif estado == "juego":
         juego_terminado = iniciar_juego() # Una vez terminado el juego, iniciar_juego() retorna una tupla = ("menu final", puntuacion)
         puntuacion = juego_terminado[1]
