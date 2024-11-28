@@ -9,8 +9,6 @@
 | ---- | ---- |
 | ![Captura 3](assets/capturasJuego/gameOver.png) | ![Captura 4](assets/capturasJuego/ranking.png) |
 
-### <p align="center">Hey <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="25"> I'm Vikash PR</p>
-
 ## Características
 - **Jugabilidad clásica**: La serpiente se mueve en una cuadrícula y crece al comer una manzana.
 - **Música de fondo**: Se reproduce continuamente durante el juego.
@@ -69,6 +67,4 @@ Equipo de Desarrollo: **Unnamed**
 ## Créditos 📜
 Este juego fue desarrolado utilizando la librería [PyGame](https://www.pygame.org/). Agradecimienos especiales a las fuentes de recursos gráficos y de audio disponibles de manera grautita.
 
-## Licencia 🔑
-Este proyecto está bajo la licencia MIT. Consulta el archivo `LICENSE` para más detalles.
 <p align="center"> <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=algolia&quote=To%20know,%20is%20to%20know%20that%20you%20know%20nothing.&author=Wise%20man" /> </p>
